@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'semantic-ui-react'
+import { Table, Accordion, Icon, Segment } from 'semantic-ui-react'
 import { getList } from './getList'
 
 
 function App() {
+  const [ toggle, setToggle ] = useState(0)
+  //const handleClick = setToggle(true)
   const [data, setData] = useState([]);
   // function getNewList() {
   //   console.log('hello')
@@ -26,13 +28,9 @@ function App() {
   }, [])
   console.log(data)
   return (
-    <div className="App">
-      <ul>
-        {/* {
-          data && data.length > 0 && data.map((item) => <div key={item.id}> {item.years}</div>) 
-        } */}
-        <Table>
-          <Table.Header>
+<Segment>
+        <Table >
+          <Table.Header >
             <Table.Row>
               <Table.HeaderCell>Название ВУЗа</Table.HeaderCell>
               <Table.HeaderCell>Направление</Table.HeaderCell>
@@ -45,7 +43,7 @@ function App() {
           <Table.Body>
             {data.map(item => <>
               <Table.Row>
-              <Table.Cell>{item.name}</Table.Cell>
+              <Table.Cell><Accordion><Accordion.Title active={toggle} onClick={() => setToggle(!toggle)}><Icon name='dropdown' />{item.name}</Accordion.Title><Accordion.Content active={toggle}>123</Accordion.Content></Accordion></Table.Cell>
               <Table.Cell>{item.dir}</Table.Cell>
               <Table.Cell>{item.price}</Table.Cell>
               <Table.Cell>{item.years}</Table.Cell>
@@ -56,8 +54,7 @@ function App() {
           
           </Table.Body>
         </Table>
-      </ul>
-    </div>
+        </Segment>
   );
 }
 
