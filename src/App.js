@@ -43,9 +43,17 @@ function App() {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-          <Table.Row>
-            {data.map(item => <Table.Cell>{item.name}</Table.Cell>)}
-          </Table.Row>
+            {data.map(item => <>
+              <Table.Row>
+              <Table.Cell>{item.name}</Table.Cell>
+              <Table.Cell>{item.dir}</Table.Cell>
+              <Table.Cell>{item.price}</Table.Cell>
+              <Table.Cell>{item.years}</Table.Cell>
+              <Table.Cell>{item.points}</Table.Cell>
+              <Table.Cell>{item.subjects}</Table.Cell>
+              </Table.Row>
+            </>)}
+          
           </Table.Body>
         </Table>
       </ul>
