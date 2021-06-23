@@ -1,4 +1,4 @@
 # SCHOOL LIST
 Список вузов во плоти
 
-![](https://user-images.githubusercontent.com/914329/29578209-0af170f4-87a1-11e7-95d0-1b00a141b581.png)
+![](https://user-images.githubusercontent.com/28097467/123146093-3112cb00-d466-11eb-9b43-7db919ac0301.png)
