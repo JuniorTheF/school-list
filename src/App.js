@@ -1,25 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import {getList} from './getList'
+import { getList } from './getList'
 
 function App() {
   const [data, setData] = useState([]);
+  // function getNewList() {
+  //   console.log('hello')
+  //   fetch('data.json')
+  //     .then(function (response) {
+  //       return response.json()
+  //     })
+  //     .then(function (myJson) {
+  //       setData(myJson)
+  //     })
+  // }
+
 
   useEffect(() => {
-    let mounted = true;
+    // getNewList()
     getList()
       .then(data => {
-        if(mounted) {
-          setData(JSON.stringify(data))
-        }
+        setData(data)
       })
-    return () => mounted = false;
   }, [])
   console.log(data)
   return (
     <div className="App">
       <ul>
-       {/* {data.schools.map(item => <li key={item}>{item}</li>)} */}
-     </ul>
+        {/* {data && data.length > 0 && data.map((item) => <li key={item._id}>{item}</li>)} */}
+        {
+          data && data.length > 0 && data.map((item) => <div key={item.id}> {item.years}</div>)
+        }
+      </ul>
     </div>
   );
 }
