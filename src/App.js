@@ -2,29 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'semantic-ui-react'
 import { getList } from './getList'
 
-
 function App() {
   const [data, setData] = useState([]);
-  // function getNewList() {
-  //   console.log('hello')
-  //   fetch('data.json')
-  //     .then(function (response) {
-  //       return response.json()
-  //     })
-  //     .then(function (myJson) {
-  //       setData(myJson)
-  //     })
-  // }
-
 
   useEffect(() => {
-    // getNewList()
     getList()
       .then(data => {
         setData(data)
       })
   }, [])
+
   console.log(data)
+
   return (
     <div className="App">
       <ul>
@@ -45,15 +34,14 @@ function App() {
           <Table.Body>
             {data.map(item => <>
               <Table.Row>
-              <Table.Cell>{item.name}</Table.Cell>
-              <Table.Cell>{item.dir}</Table.Cell>
-              <Table.Cell>{item.price}</Table.Cell>
-              <Table.Cell>{item.years}</Table.Cell>
-              <Table.Cell>{item.points}</Table.Cell>
-              <Table.Cell>{item.subjects}</Table.Cell>
+                <Table.Cell>{item.name}</Table.Cell>
+                <Table.Cell>{item.dir}</Table.Cell>
+                <Table.Cell>{item.price}</Table.Cell>
+                <Table.Cell>{item.years}</Table.Cell>
+                <Table.Cell>{item.points}</Table.Cell>
+                <Table.Cell>{item.subjects}</Table.Cell>
               </Table.Row>
             </>)}
-          
           </Table.Body>
         </Table>
       </ul>
