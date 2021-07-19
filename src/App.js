@@ -1,52 +1,122 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'semantic-ui-react'
-import { getList } from './getList'
+import _ from 'lodash'
+import React from 'react'
+import { Table, Segment, List } from 'semantic-ui-react'
+import { tableData } from './tableData'
+import {
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+import Page from './subpages/mpti'
+
+
+function exampleReducer(state, action) {
+  switch (action.type) {
+    case 'CHANGE_SORT':
+      if (state.column === action.column) {
+        return {
+          ...state,
+          data: state.data.slice().reverse(),
+          direction:
+            state.direction === 'ascending' ? 'descending' : 'ascending',
+        }
+      }
+
+      return {
+        column: action.column,
+        data: _.sortBy(state.data, [action.column]),
+        direction: 'ascending',
+      }
+    default:
+      throw new Error()
+  }
+}
 
 function App() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    getList()
-      .then(data => {
-        setData(data)
-      })
-  }, [])
+  const [state, dispatch] = React.useReducer(exampleReducer, {
+    column: null,
+    data: tableData,
+    direction: null,
+  })
+  const { column, data, direction } = state
 
   console.log(data)
 
   return (
-    <div className="App">
-      <ul>
-        {/* {
-          data && data.length > 0 && data.map((item) => <div key={item.id}> {item.years}</div>) 
-        } */}
-        <Table>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Название ВУЗа</Table.HeaderCell>
-              <Table.HeaderCell>Направление</Table.HeaderCell>
-              <Table.HeaderCell>Цена обучения</Table.HeaderCell>
-              <Table.HeaderCell>Время обучения</Table.HeaderCell>
-              <Table.HeaderCell>Баллы</Table.HeaderCell>
-              <Table.HeaderCell>Предметы ЕГЭ</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {data.map(item => <>
-              <Table.Row>
-                <Table.Cell>{item.name}</Table.Cell>
-                <Table.Cell>{item.dir}</Table.Cell>
-                <Table.Cell>{item.price}</Table.Cell>
-                <Table.Cell>{item.years}</Table.Cell>
-                <Table.Cell>{item.points}</Table.Cell>
-                <Table.Cell>{item.subjects}</Table.Cell>
-              </Table.Row>
-            </>)}
-          </Table.Body>
-        </Table>
-      </ul>
-    </div>
-  );
+    <>
+    <Segment basic>
+      
+    <Table sortable celled striped fixed color='red'>
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell
+            sorted={column === 'name' ? direction : null}
+            onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'name' })}
+          >
+            ВУЗ
+          </Table.HeaderCell>
+          <Table.HeaderCell
+            sorted={column === 'dir' ? direction : null}
+            onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'dir' })}
+          >
+            Направление
+          </Table.HeaderCell>
+          <Table.HeaderCell
+            sorted={column === 'price' ? direction : null}
+            onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'price' })}
+          >
+            Цена
+          </Table.HeaderCell>
+
+          <Table.HeaderCell
+            sorted={column === 'years' ? direction : null}
+            onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'years' })}
+          >
+            Время обучения
+          </Table.HeaderCell>
+
+          <Table.HeaderCell
+            sorted={column === 'points' ? direction : null}
+            onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'points' })}
+          >
+            Баллы ЕГЭ
+          </Table.HeaderCell>
+
+          <Table.HeaderCell
+            sorted={column === 'subjects' ? direction : null}
+            onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'subjects' })}
+          >
+            Предмет ЕГЭ
+          </Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        {data.map(({ price, dir, name, id, subjects, points, years, path }) => (
+          <Table.Row key={id}>
+            <Table.Cell><Link to={path}>{name}</Link></Table.Cell>
+            <Table.Cell>{dir}</Table.Cell>
+            <Table.Cell>{price}</Table.Cell>
+            <Table.Cell>{years}</Table.Cell>
+            <Table.Cell>{points}</Table.Cell>
+            <Table.Cell>{subjects}</Table.Cell>
+          </Table.Row>
+        ))}
+      </Table.Body>
+    </Table>
+    </Segment>
+    <Segment basic inverted placeholder floated>
+        Сделали:
+        <List>
+          <List.Item><a href='https://github.com/JuniorTheF'>JuniorTheF</a></List.Item>
+          <List.Item><a href='https://github.com/sbmart'>sbmart</a></List.Item>
+        </List>
+    </Segment>
+    <Switch>
+      <Route path='/mpti' children={<Page />} />
+    </Switch>
+    </>
+  )
 }
 
-export default App;
+export default App

@@ -6,7 +6,8 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 258,
       "subjects": "физика",
-      "id": 0
+      "id": 0,
+      "path": '/mpti'
     },
     {
       "name": "МИРЭА",
