@@ -1,8 +1,9 @@
 import React from 'react'
 import App from './App';
-import Page from './subpages/mpti'
+import Page from './subpages/page'
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { Header, Icon } from 'semantic-ui-react'
+import { tableData } from './tableData'
 
 function AppWrapper() {
   return (
@@ -14,9 +15,14 @@ function AppWrapper() {
         </Header>       
         <Switch>
             <Route exact path="/" component={App} />
-            <Route path="/mpti" >
+            {tableData.map(({name, path, years, dir}) => (
+              <Route path={path}>
+                <Page name={name} years={years} dir={dir}/>
+              </Route>
+            ))}
+            {/* <Route path="/mpti" >
                 <Page name='1'/>
-            </Route>
+            </Route> */}
         </Switch>
         </Router>
     </>

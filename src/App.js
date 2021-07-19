@@ -8,7 +8,7 @@ import {
   Link
 } from "react-router-dom";
 
-import Page from './subpages/mpti'
+import Page from './subpages/page'
 
 
 function exampleReducer(state, action) {
