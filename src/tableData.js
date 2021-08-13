@@ -6,7 +6,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 258,
       "subjects": "физика",
-      "id": 0
+      "id": 0,
+      "path": '/mpti',
+      "src": './pics/maps/MPTI.png'
     },
     {
       "name": "МИРЭА",
@@ -15,7 +17,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 244,
       "subjects": "информатика",
-      "id": 3
+      "id": 3,
+      "path": '/mirea',
+      "src": './pics/maps/MIREA.png'
     },
     {
       "name": "МТУСИ",
@@ -24,7 +28,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 228,
       "subjects": "физика",
-      "id": 4
+      "id": 4,
+      "path": '/mtuci',
+      "src": './pics/maps/MTUCI.png'
     },
     {
       "name": "ВШЭ",
@@ -33,7 +39,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 275,
       "subjects": "физика",
-      "id": 5
+      "id": 5,
+      "path": '/hse',
+      "src": './pics/maps/HSE.png'
     },
     {
       "name": "МГТУ",
@@ -42,7 +50,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 255,
       "subjects": "информатика",
-      "id": 6
+      "id": 6,
+      "path": '/bmstu',
+      "src": './pics/maps/BMSTU.png'
     },
     {
       "name": "МГТУ",
@@ -51,7 +61,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 243,
       "subjects": "информатика",
-      "id": 7
+      "id": 7,
+      "path": '/bmstu',
+      "src": './pics/maps/BMSTU.png'
     },
     {
       "name": "МИСиС",
@@ -60,7 +72,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 270,
       "subjects": "информатика",
-      "id": 8
+      "id": 8,
+      "path": '/misis',
+      "src": './pics/maps/MISIS.png'
     },
     {
       "name": "Плеханов",
@@ -69,7 +83,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 210,
       "subjects": "информатика",
-      "id": 9
+      "id": 9,
+      "path": '/rea',
+      "src": './pics/maps/REA.png'
     },
     {
       "name": "Сеченовский",
@@ -78,7 +94,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 174,
       "subjects": "физика",
-      "id": 10
+      "id": 10,
+      "path": '/sechenov',
+      "src": './pics/maps/SECHENOV.png'
     },
     {
       "name": "МЭИ",
@@ -87,7 +105,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 130,
       "subjects": "информатика",
-      "id": 11
+      "id": 11,
+      "path": '/mpei',
+      "src": './pics/maps/MPEI.png'
     },
     {
       "name": "МАИ",
@@ -96,7 +116,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 183,
       "subjects": "физика",
-      "id": 13
+      "id": 13,
+      "path": '/mai',
+      "src": './pics/maps/MAI.png'
     },
     {
       "name": "МИЭТ",
@@ -105,7 +127,9 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 221,
       "subjects": "физика, информатика",
-      "id": 14
+      "id": 14,
+      "path": '/miet',
+      "src": './pics/maps/MIET.png'
     },
     {
       "name": "МИФИ",
@@ -114,6 +138,8 @@ export const tableData = [
       "years": '4 года, очная',
       "points": 285,
       "subjects": "физика",
-      "id": 15
+      "id": 15,
+      "path": '/mephi',
+      "src": './pics/maps/MEPHI.png'
     }
   ]
