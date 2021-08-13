@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import React from 'react'
-import { Table, Segment, List } from 'semantic-ui-react'
+import { Table, Segment, List, Divider } from 'semantic-ui-react'
 import { tableData } from './tableData'
 import {
   Switch,
@@ -105,6 +105,7 @@ function App() {
       </Table.Body>
     </Table>
     </Segment>
+    <Divider hidden />
     <Segment basic inverted placeholder floated>
         Сделали:
         <List>
